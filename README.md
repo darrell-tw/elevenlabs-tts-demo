@@ -2,6 +2,17 @@
 
 A small, production-shaped Python integration with the [ElevenLabs](https://elevenlabs.io) Text-to-Speech API.
 
+## 🎧 Hear it first
+
+Both samples were synthesized by this repo's code through the real ElevenLabs API on a free-tier account — nothing mocked, nothing faked. Click a file to play it:
+
+| Listen | Language | Text |
+|---|---|---|
+| [▶ `sample_zh_tw.mp3`](samples/sample_zh_tw.mp3) | Traditional Chinese | 第一步，往往決定了之後的一切。歡迎使用 ElevenLabs 文字轉語音示範。 |
+| [▶ `sample_en.mp3`](samples/sample_en.mp3) | English | The first step often decides everything that follows. Welcome to this ElevenLabs text-to-speech demo. |
+
+Voice **George** · model `eleven_multilingual_v2` · generation receipt in [`samples/MANIFEST.md`](samples/MANIFEST.md).
+
 The point of this repo isn't feature count — it's **clean integration engineering**: typed error handling, retry with exponential backoff, concurrency-limited async batches, structured logging, environment-based config, a tested core, and a small CLI. It is bilingual by design and ships **Traditional-Chinese** and **English** samples (see [Known limitation](#known-limitation-no-taiwanese-mandarin-accent-on-the-free-plan) for why the Chinese sample doesn't have a Taiwanese accent on the free tier).
 
 Runtime dependencies are intentionally minimal: only the official `elevenlabs` SDK. Everything else (config, retry, logging, CLI) is the Python standard library, so the integration surface is easy to audit.
@@ -107,17 +118,7 @@ Unit tests inject a fake SDK client, so validation, error classification, retry,
 
 ## Samples
 
-Both files were generated with a real, successful call to the ElevenLabs
-Text-to-Speech API on a free-tier account — nothing here is mocked or faked.
-Sample audio generated with ElevenLabs.
-
-| File | Voice | Model | Text |
-|---|---|---|---|
-| [`samples/sample_zh_tw.mp3`](samples/sample_zh_tw.mp3) | George (`JBFqnCBsd6RMkjVDRZzb`) | `eleven_multilingual_v2` | 第一步，往往決定了之後的一切。歡迎使用 ElevenLabs 文字轉語音示範。 |
-| [`samples/sample_en.mp3`](samples/sample_en.mp3) | George (`JBFqnCBsd6RMkjVDRZzb`) | `eleven_multilingual_v2` | The first step often decides everything that follows. Welcome to this ElevenLabs text-to-speech demo. |
-
-See [`samples/MANIFEST.md`](samples/MANIFEST.md) for the generation timestamp
-and exact quota spent producing these files.
+The two shipped samples are linked at the [top of this README](#-hear-it-first) — voice George (`JBFqnCBsd6RMkjVDRZzb`), model `eleven_multilingual_v2`, generated with real, successful API calls on a free-tier account. Sample audio generated with ElevenLabs. See [`samples/MANIFEST.md`](samples/MANIFEST.md) for the generation timestamp and exact quota spent.
 
 ### Regenerating them
 
