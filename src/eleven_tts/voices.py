@@ -72,7 +72,7 @@ def search_voices(
     to restrict results to the official default voices, which are guaranteed
     usable via the API on every plan (unlike voices sourced from the shared
     library, which the API rejects for free-tier accounts even after they've
-    been added to My Voices — see README "Known limitations").
+    been added to My Voices — see README "Known limitation").
     """
     try:
         resp = client._sdk.voices.search(

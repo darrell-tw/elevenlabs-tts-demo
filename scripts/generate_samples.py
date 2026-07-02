@@ -7,7 +7,7 @@ English).
 Requires ELEVENLABS_API_KEY (env or .env). The voice used is **pinned via
 `ELEVENLABS_VOICE_ID` in `.env`** rather than picked freshly on every run.
 
-Known limitation (see README "Known limitations"): a Taiwanese-Mandarin voice
+Known limitation (see README "Known limitation"): a Taiwanese-Mandarin voice
 ("Yu", accent `taiwan mandarin`) was located in the ElevenLabs shared voice
 library with `client.voices.get_shared(search=...)` and successfully added to
 this account with `client.voices.share(...)` — but the Text-to-Speech API
