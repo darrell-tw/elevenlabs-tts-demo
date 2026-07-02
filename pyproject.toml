@@ -1,0 +1,40 @@
+[project]
+name = "elevenlabs-tts-demo"
+version = "0.1.0"
+description = "Clean integration demo for the ElevenLabs Text-to-Speech API: typed error handling, retry with backoff, async batch synthesis, and a small CLI."
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+authors = [{ name = "Darrell Wang" }]
+keywords = ["elevenlabs", "text-to-speech", "tts", "async", "integration"]
+
+# Runtime dependency is intentionally minimal: only the official ElevenLabs SDK
+# (which brings httpx). Everything else — config, retry, logging, CLI — uses the
+# Python standard library, to keep the integration surface easy to audit.
+dependencies = [
+    "elevenlabs>=2.0,<3.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
+]
+
+[project.scripts]
+eleven-tts = "eleven_tts.cli:main"
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+# Integration tests hit the real ElevenLabs API and need ELEVENLABS_API_KEY.
+# They are excluded by default; run them explicitly with: pytest -m integration
+addopts = "-m 'not integration'"
+markers = [
+    "integration: tests that call the real ElevenLabs API (require ELEVENLABS_API_KEY)",
+]

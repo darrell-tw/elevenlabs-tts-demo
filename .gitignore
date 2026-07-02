@@ -1,0 +1,22 @@
+# Secrets — never commit real keys
+.env
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+build/
+dist/
+.venv/
+venv/
+
+# Test / tooling caches
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+
+# Generated audio (samples/ is committed deliberately; ignore ad-hoc output)
+out/
+*.tmp.mp3
